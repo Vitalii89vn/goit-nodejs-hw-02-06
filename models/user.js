@@ -1,7 +1,7 @@
 const {Schema, model} = require("mongoose");
-const mongooseError = require('../helpers');
+const {mongooseError} = require('../helpers');
 
-// const emailRegexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const emailRegexp = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ 
 
 const userSchema= new Schema({
     password: {
@@ -11,7 +11,7 @@ const userSchema= new Schema({
       email: {
         type: String,
         required: [true, 'Email is required'],
-        // match: emailRegexp,
+        match: emailRegexp,
         unique: true,
       },
       subscription: {
@@ -20,11 +20,7 @@ const userSchema= new Schema({
         default: "starter"
       },
       token: String,
-      owner: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-      }
-}, {versionKey: false, timestamps: true}
+     }, {versionKey: false, timestamps: false}
 );
 userSchema.post('save', mongooseError)
 

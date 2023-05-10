@@ -1,6 +1,6 @@
 const {Schema, model} = require("mongoose");
 
-const bookSchema = new Schema({
+const contactSchema = new Schema({
     name: {
       type: String,
       required: [true, 'Set name for contact'],
@@ -17,8 +17,12 @@ const bookSchema = new Schema({
       type: Boolean,
       default: false,
     },
-  }, {versionKey: false, timestamps: true});
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    }
+  }, {versionKey: false, timestamps: false});
 
-const Contact = model("contact", bookSchema);
+const Contact = model("contact", contactSchema);
 
 module.exports = Contact
