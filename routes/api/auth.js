@@ -10,6 +10,6 @@ router.post('/login', validateBody(authSchema), ctrl.login)
 
 router.post('/logout', authenticate, ctrl.logout)
 
-
+router.get('/current', authenticate, ctrl.current)
 
 module.exports = router;
