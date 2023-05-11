@@ -6,7 +6,7 @@ const updateContact = require('./updateContact');
 const updateStatusContact = require('./updateStatusContact');
 const register = require('./register');
 const login = require('./login');
-
+const logout = require('./logout');
 
 const {ctrlWrapper} = require('../helpers');
 
@@ -18,5 +18,7 @@ module.exports = {
     updateContact: ctrlWrapper(updateContact),
     updateStatusContact: ctrlWrapper(updateStatusContact),
     register: ctrlWrapper(register),
-    login: ctrlWrapper(login)
+    login: ctrlWrapper(login),
+    logout: ctrlWrapper(logout),
+    
 };

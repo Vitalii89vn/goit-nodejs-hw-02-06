@@ -1,4 +1,5 @@
 const {Schema, model} = require("mongoose");
+const { mongooseError } = require('../helpers');
 
 const contactSchema = new Schema({
     name: {
@@ -22,6 +23,8 @@ const contactSchema = new Schema({
       ref: 'user',
     }
   }, {versionKey: false, timestamps: false});
+
+contactSchema.post('save', mongooseError);
 
 const Contact = model("contact", contactSchema);
 
