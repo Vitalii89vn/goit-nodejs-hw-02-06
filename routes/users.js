@@ -1,8 +1,8 @@
 const express = require('express');
-const ctrl = require('../../controllers');
+const ctrl = require('../controllers');
 const router = express.Router();
-const {authSchema} = require('../../schema');
-const {validateBody, authenticate} = require('../../middlewares');
+const {authSchema} = require('../schema');
+const {validateBody, authenticate} = require('../middlewares');
 
 router.post('/register', validateBody(authSchema), ctrl.register);
 
