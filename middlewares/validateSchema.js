@@ -11,7 +11,7 @@ const validateBody = schema => {
             next(httpError(400, `missing required ${missedField} field`));
         };
         if (error) {
-            next(httpError(400, `${error.name}: field ${error.details[0].message}`))
+            next(httpError(400, `${error.name}: field ${error.details[0].context.key.toUpperCase()} is not valid`))
         };
         next()
     }
