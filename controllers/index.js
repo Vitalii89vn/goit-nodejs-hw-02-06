@@ -8,7 +8,8 @@ const register = require('./register');
 const login = require('./login');
 const logout = require('./logout');
 const current = require('./current');
-const updateAvatar = require('./updateAvatar')
+const updateAvatar = require('./updateAvatar');
+const updateSubscription = require('./updateSubscription')
 
 const {ctrlWrapper} = require('../helpers');
 
@@ -23,6 +24,7 @@ module.exports = {
     login: ctrlWrapper(login),
     logout: ctrlWrapper(logout),
     current: ctrlWrapper(current),
-    updateAvatar: ctrlWrapper(updateAvatar)
+    updateAvatar: ctrlWrapper(updateAvatar),
+    updateSubscription: ctrlWrapper(updateSubscription)
     
 };

@@ -22,7 +22,7 @@ const updateAvatar = async (req, res) => {
 
     await User.findByIdAndUpdate(_id, { avatarURL });
 
-    res.json({
+    res.status(200).json({
         avatarURL,
     });
 };
