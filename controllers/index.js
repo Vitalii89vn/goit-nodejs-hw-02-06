@@ -9,7 +9,9 @@ const login = require('./login');
 const logout = require('./logout');
 const current = require('./current');
 const updateAvatar = require('./updateAvatar');
-const updateSubscription = require('./updateSubscription')
+const updateSubscription = require('./updateSubscription');
+const verifyEmail = require('./verifyEmail');
+const resendVerifyEmail = require('./resendVerifyEmail')
 
 const {ctrlWrapper} = require('../helpers');
 
@@ -25,6 +27,8 @@ module.exports = {
     logout: ctrlWrapper(logout),
     current: ctrlWrapper(current),
     updateAvatar: ctrlWrapper(updateAvatar),
-    updateSubscription: ctrlWrapper(updateSubscription)
+    updateSubscription: ctrlWrapper(updateSubscription),
+    verifyEmail: ctrlWrapper(verifyEmail),
+    resendVerifyEmail: ctrlWrapper(resendVerifyEmail)
     
 };
