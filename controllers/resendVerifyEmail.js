@@ -3,7 +3,7 @@ const { httpError, sendEmail } = require('../helpers');
 
 const resendVerifyEmail = async (req, res) => {
     const {email} = req.body;
-    const user = await User.findOne({email});
+    const user = await User.findOne({ email });
     if(!user) {
         throw httpError(401, "Email not found");
     }

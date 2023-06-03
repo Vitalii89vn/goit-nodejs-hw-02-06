@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const {httpError} = require('../helpers')
 
-const verifyEmail = async (res, req) => {
+const verifyEmail = async (req, res) => {
     const { verificationToken } = req.params;
     const user = await User.findOne({ verificationToken });
     if (!user) {
@@ -9,10 +9,11 @@ const verifyEmail = async (res, req) => {
         
     }
     await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: null });
-
-    res.status(200).json({
+    
+    res.status(201).json({
         message: 'Verification successful'
     })
 };
 
-module.exports = verifyEmail
+module.exports = verifyEmail;
+
